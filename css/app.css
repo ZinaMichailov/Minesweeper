@@ -27,7 +27,7 @@ td {
     height: 30px;
     width: 30px;
     background-color: #C0C0C0;
-    border: 1.5px solid;
+    border: 3px solid;
     border-top-color: #ffffff;
     border-right-color: #7B7B7B;
     border-bottom-color: #7B7B7B;
@@ -37,8 +37,8 @@ td {
 }
 
 th {
-    height: 40px;
-    border: 1.5px solid;
+    height: 45px;
+    border: 3px solid;
     border-top-color: #ffffff;
     border-right-color: #7B7B7B;
     border-bottom-color: #7B7B7B;
@@ -47,7 +47,7 @@ th {
 
 th > button {
     background-color: #C0C0C0;
-    border: 1.5px solid;
+    border: 3px solid;
     border-top-color: #ffffff;
     border-right-color: #7B7B7B;
     border-bottom-color: #7B7B7B;
@@ -72,4 +72,29 @@ th > button {
 .level button:hover {
     background-color: rgba(255, 255, 255, 80%)
 }
+
+.shown {
+    background-color: #7B7B7B;
+    border-top-color: #7B7B7B;
+    border-left-color: #7B7B7B;
+}
+
+.end {
+    text-align: center;
+    font-size: 35px;
+    margin-top: 20px;
+}
+
+/* .timer {
+    font-size: 14px;
+    display: inline;
+    border-top: 1.5px solid #808080;
+    border-left: 1.5px solid #808080;
+    border-right: 1.5px solid #FAFAFA;
+    border-bottom: 1.5px solid #FAFAFA;
+    width: 200px;
+    height: 22px;
+    margin: 2px;
+    padding: 5px;
+} */
 
