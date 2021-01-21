@@ -19,16 +19,46 @@
         <button onclick="updateLevel(12, 30)">Expert</button>
     </div>
 
+    <p>If you want to manually create the location of the mines click the button:</p>
+    <button class="mine" onclick="minesByUser()">Create Mines</button>
+
+    <p>For help click on hints or safe click button:</p>
+    <div class="hints">
+        <div class="hint1" onclick="hintClicked(this)">💡</div>
+        <div class="hint2" onclick="hintClicked(this)">💡</div>
+        <div class="hint3" onclick="hintClicked(this)">💡</div>
+    </div>
+
+    <button class="safe" onclick="markCoveredCell(this)">Safe Click: 3</button>
+
     <div class="board-container"></div>
 
-    <div class="timer">00:00:00</div>
-    
+    <button class="undo" onclick="undoClicked()">Undo</button>
+
     <div class="end"></div>
-    
+
+    <p>Lives:
+    <div class="lives"></div>
+    </p>
+
+    <p>The best time:</p>
+    <ul>
+        <li>beginner:&nbsp</li>
+        <div class="beginner">00:00:00</div>
+        <li>medium:&nbsp</li>
+        <div class="medium">00:00:00</div>
+        <li>expert:&nbsp</li>
+        <div class="expert">00:00:00</div>
+    </ul>
+
     <script src="js/utils.js"></script>
     <script src="js/game.js"></script>
+    <script src="js/mine.js"></script>
+    <script src="js/undo.js"></script>
     <script src="js/timer.js"></script>
-    
+    <script src="js/hints.js"></script>
+    <script src="js/safeClick.js"></script>
+
 </body>
 
 </html>

@@ -1,3 +1,6 @@
+
+/* Global styles
+-------------------------------*/
 * {
     box-sizing: border-box;
 }
@@ -14,8 +17,12 @@ h1 {
 
 p {
     margin-left: 20px;
+    margin-bottom: 0;
+    font-size: 25px;
 }
 
+/* Board style
+-------------------------------*/
 table {
     margin-left: auto;
     margin-right: auto;
@@ -45,6 +52,14 @@ th {
     border-left-color: #ffffff;
 }
 
+.shown {
+    background-color: #7B7B7B;
+    border-top-color: #7B7B7B;
+    border-left-color: #7B7B7B;
+}
+
+/* Smiley
+-------------------------------*/
 th > button {
     background-color: #C0C0C0;
     border: 3px solid;
@@ -55,37 +70,38 @@ th > button {
     padding: 5px;
 }
 
-.timer {
-    text-align: center;
-    font-size: 30px;
-    margin-top: 25px;
-}
 
+/* Levels
+-------------------------------*/
 .level button {
     color: #343434;
     background-color: #ffffff;
     margin-left: 20px;
-    padding: 5px 15px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    padding: 7px 18px;
+    border: none;
+    border-radius: 3px;
 }
 
 .level button:hover {
     background-color: rgba(255, 255, 255, 80%)
 }
 
-.shown {
-    background-color: #7B7B7B;
-    border-top-color: #7B7B7B;
-    border-left-color: #7B7B7B;
-}
 
+/* Game over
+-------------------------------*/
 .end {
     text-align: center;
     font-size: 35px;
     margin-top: 20px;
 }
 
-/* .timer {
+
+/* Timer
+-------------------------------*/
+span {
+    color: rgb(209, 3, 3);
+    background-color: black;
     font-size: 14px;
     display: inline;
     border-top: 1.5px solid #808080;
@@ -96,5 +112,107 @@ th > button {
     height: 22px;
     margin: 2px;
     padding: 5px;
-} */
+}
 
+ul {
+    list-style: none;
+    text-align: center;
+    padding-left: 0;
+}
+
+li {
+    display: inline-block;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.beginner, .medium, .expert {
+    display: inline-block;
+    color: rgb(112, 0, 0);;
+    font-size: 20px;
+} 
+
+/* Lives
+-------------------------------*/
+.lives {
+    text-align: center;
+    font-size: 25px;
+}
+
+/* Hints
+-------------------------------*/
+.hints {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.hint1, .hint2, .hint3 {
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+/* Safe click
+-------------------------------*/
+.safe {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 15px;
+    background-color: #C0C0C0;
+    border: 3px solid;
+    border-top-color: #ffffff;
+    border-right-color: #7B7B7B;
+    border-bottom-color: #7B7B7B;
+    border-left-color: #ffffff;
+    text-align: center;
+    padding: 5px;
+} 
+
+.safe:hover {
+    background-color: rgba(192, 192, 192, 80%);
+}
+
+.mark {
+    background-color: rgb(255, 196, 0);
+}
+
+/* Mines by user
+-------------------------------*/
+.mine {
+    color: #343434;
+    background-color: #ffffff;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 7px 18px;
+    border: none;
+    border-radius: 3px;
+}
+
+.mine:hover {
+    background-color: rgba(255, 255, 255, 80%)
+}
+
+/* Mines by user
+-------------------------------*/
+.undo {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    display: block;
+    background-color: #C0C0C0;
+    border: 3px solid;
+    border-top-color: #ffffff;
+    border-right-color: #7B7B7B;
+    border-bottom-color: #7B7B7B;
+    border-left-color: #ffffff;
+    text-align: center;
+    padding: 5px;
+}
+
+.undo:hover {
+    background-color: rgba(192, 192, 192, 80%);
+}
