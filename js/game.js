@@ -47,38 +47,15 @@ function restartGame(size) {
 }
 
 function updateLevel(size = 4, mines = 2) {
-    SMILEY = '🙂';
-    glivesCount = 3;
-    gSafeClickCount = 2;
-    gCountMinesUser = 0;
-    isMarkCoveredCell = false;
-    isFirstClick = true;
-    isHintClicked = false;
-    isMineByUser = false;
-    isMinesCreated = false;
-    gGame.isOn = true;
-    gGame.shownCount = 0;
-    gGame.markedCount = 0;
-    gGame.secsPassed = 0;
-    gCountRecursionActions = 1;
-    gLevel = {
-        SIZE: size,
-        MINES: mines
-    };
-    gDoneActions = [];
+    updateInitGameProperties(size, mines);
 
     gBoard = buildBoard(gLevel);
     renderBoard(gBoard);
-    elTimer = document.querySelector('span');
-
+    
     timerRunning = false;
     resetTimer();
-    document.querySelector('.lives').innerHTML = gLives[3];
-    document.querySelector('.safe').innerText = 'Safe Click: 3';
-    document.querySelector('.end').innerText = '';
-    document.querySelector('.hint1').innerHTML = '💡';
-    document.querySelector('.hint2').innerHTML = '💡';
-    document.querySelector('.hint3').innerHTML = '💡';
+    
+    renderInitGame();
     disableRightClick();
 }
 
@@ -96,7 +73,6 @@ function buildBoard(gLevel) {
         }
     }
 
-    console.log(board)
     return board;
 }
 
@@ -145,7 +121,6 @@ function renderBoard(board) {
     strHTML += '</tbody></table>';
     var elContainer = document.querySelector('.board-container');
     elContainer.innerHTML = strHTML;
-    console.log(elContainer)
 }
 
 function cellClicked(elCell, event, i, j) {
@@ -195,6 +170,7 @@ function cellClicked(elCell, event, i, j) {
                     break;
                 default:
                     elCell.innerHTML = cell.minesAroundCount;
+                    renderColorNums(cell, elCell);
                     addAction(i, j);
                     gDoneActions.push(1);
                     break;
@@ -202,7 +178,6 @@ function cellClicked(elCell, event, i, j) {
         }
     }
     checkGameOver();
-    console.log(gDoneActions)
 }
 
 function cellMarked(elCell, i, j) {
@@ -254,6 +229,7 @@ function expandShown(board, i, j) {
             if (currCell.isShown) continue;
             if (currCell.isMarked) continue;
             shownCell(currCell, elCurrCell);
+            renderColorNums(currCell, elCurrCell);
             addAction(rowIdx, colIdx);
             gCountRecursionActions++;
             if (currCell.minesAroundCount === EMPTY) expandShown(gBoard, rowIdx, colIdx);
@@ -274,4 +250,61 @@ function shownCell(cell, elCell) {
     elCell.innerHTML = cell.minesAroundCount;
     elCell.classList.add('shown');
     gGame.shownCount++;
+}
+
+function renderInitGame() {
+    elTimer = document.querySelector('span');
+    document.querySelector('.lives').innerHTML = gLives[3];
+    document.querySelector('.safe').innerText = 'Safe Click: 3';
+    document.querySelector('.end').innerText = '';
+    document.querySelector('.hint1').innerHTML = '<img src="./img/hint.png" width="55">';
+    document.querySelector('.hint2').innerHTML = '<img src="./img/hint.png" width="55">';
+    document.querySelector('.hint3').innerHTML = '<img src="./img/hint.png" width="55">';
+}
+
+function updateInitGameProperties(size, mines) {
+    SMILEY = '🙂';
+    glivesCount = 3;
+    gSafeClickCount = 2;
+    gCountMinesUser = 0;
+    isMarkCoveredCell = false;
+    isFirstClick = true;
+    isHintClicked = false;
+    isMineByUser = false;
+    isMinesCreated = false;
+    gGame.isOn = true;
+    gGame.shownCount = 0;
+    gGame.markedCount = 0;
+    gGame.secsPassed = 0;
+    gCountRecursionActions = 1;
+    gLevel = {
+        SIZE: size,
+        MINES: mines
+    };
+    gDoneActions = [];
+}
+
+function renderColorNums(cell, elCell) {
+    switch(cell.minesAroundCount) {
+        case 1:
+            elCell.style.color = '#044389';
+            elCell.style.fontWeight = 'bold';
+            break;
+        case 2:
+            elCell.style.color = 'darkgreen';
+            elCell.style.fontWeight = 'bold';
+            break;
+        case 3:
+            elCell.style.color = 'darkred';
+            elCell.style.fontWeight = 'bold';
+            break;
+        case 4:
+            elCell.style.color = '#003459';
+            elCell.style.fontWeight = 'bold';
+            break;
+        default:
+            elCell.style.color = 'darkmagenta';
+            elCell.style.fontWeight = 'bold';
+            break;
+    }
 }

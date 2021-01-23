@@ -1,8 +1,8 @@
 'use strict'
 
 function hintClicked(elHint) {
-    if (elHint.innerHTML === '🌟') return;
-    elHint.innerHTML = '🌟';
+    if (elHint.innerHTML === '<img src="./img/hintUse.png" width="55">') return;
+    elHint.innerHTML = '<img src="./img/hintUse.png" width="55">';
     isHintClicked = true;
 }
 
